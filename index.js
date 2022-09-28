@@ -6,9 +6,7 @@ var mongoose = require("mongoose")
 var cors = require("cors")
 
 
-app.use(cors({
-    origin:"http://localhost:3000/"
-}))
+app.use(cors())
 app.use(express.json({limit:'50mb'}))
 app.use(express.urlencoded({limit:'50mb',extended:true}))
 app.use("/",router)
@@ -24,6 +22,6 @@ mongoose.connect("mongodb+srv://kavyareddy:kavyareddy@cluster0.msabz.mongodb.net
     }
 )
 
-app.listen(5000,(req,res)=>{
+app.listen(process.env.PORT || 5000,(req,res)=>{
     console.log("Listening at port 5000")
 })
