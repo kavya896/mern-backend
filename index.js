@@ -21,7 +21,9 @@ mongoose.connect("mongodb+srv://kavyareddy:kavyareddy@cluster0.msabz.mongodb.net
         console.log("connection successful")
     }
 )
-
+app.get("/",async(req,res)=>{
+    res.send("hello world")
+})
 app.listen(process.env.PORT || 5000,(req,res)=>{
     console.log("Listening at port 5000")
 })
